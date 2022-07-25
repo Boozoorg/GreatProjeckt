@@ -5,8 +5,10 @@ import (
 	"sync"
 )
 
+var n []uint64
+
 type Account struct {
-	ID       uint32
+	ID       uint64
 	Name     string
 	Password string
 	Mail     string
@@ -25,7 +27,7 @@ func NewService() *Service {
 
 func (s *Service) Registration(name, password, mail string) (*Account, error){
 	s.mu.RLock()
-	i := uint32(1)
+	i := uint64(1)
 
 	for _, item := range s.Items {
 		if mail == item.Mail {
@@ -44,3 +46,16 @@ func (s *Service) Registration(name, password, mail string) (*Account, error){
 
 	return s.Items[i], nil
 }
+
+func (s *Service) DelateAccByID(id uint64) (*Account, error){
+	for _, item := range s.Items {
+		if id == item.ID {
+			s.Items[id] = nil
+			n = append(n, id)
+			return s.Items[id], nil
+		}
+	}
+
+	return nil, fmt.Errorf("this account is not exist")
+}
+

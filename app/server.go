@@ -1,10 +1,12 @@
 package app
 
 import (
-	"github.com/Boozoorg/GreatProjeck/accounts"
 	"encoding/json"
 	"log"
 	"net/http"
+	"strconv"
+
+	"github.com/Boozoorg/GreatProjeck/accounts"
 )
 
 type Server struct {
@@ -25,6 +27,7 @@ func (s *Server) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
 
 func (s Server) Init() {
 	s.mux.HandleFunc("/account.save", s.SaveAccount)
+	s.mux.HandleFunc("/account.delate", s.DelateAccByID)
 }
 
 func (s *Server) SaveAccount(writer http.ResponseWriter, request *http.Request) {
@@ -33,6 +36,38 @@ func (s *Server) SaveAccount(writer http.ResponseWriter, request *http.Request) 
 	Mail := request.URL.Query().Get("mail")
 
 	item, err := s.accountService.Registration(Name, Password, Mail)
+	if err != nil {
+		log.Print(err)
+		http.Error(writer, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
+	}
+
+	data, err := json.Marshal(item)
+	log.Print(string(data))
+	if err != nil {
+		log.Print(err)
+		http.Error(writer, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+	}
+
+	writer.Header().Set("Content-Type", "application/json")
+	_, err = writer.Write(data)
+	if err != nil {
+		log.Print(err)
+	}
+}
+
+func (s *Server) DelateAccByID(writer http.ResponseWriter, request *http.Request) {
+	ID := request.URL.Query().Get("id")
+
+	//Конвертируем string в uint64
+	
+	id, err := strconv.ParseUint(ID, 10, 64)
+	if err != nil {
+		log.Print(err)
+		http.Error(writer, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
+	}
+
+
+	item, err := s.accountService.DelateAccByID(id)
 	if err != nil {
 		log.Print(err)
 		http.Error(writer, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
