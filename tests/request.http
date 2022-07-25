@@ -1,0 +1,2 @@
+GET http://localhost:9999/account.save?name=Boozoorg&password=NotYourBusiness&mail=rajabovbuzurg22@gmail.com HTTP/1.1
+
