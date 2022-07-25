@@ -35,6 +35,24 @@ func (s *Service) Registration(name, password, mail string) (*Account, error){
 		}
 	}
 
+	for _, item := range n {
+		if n != nil{
+			break
+		}
+		if item != 0 {
+			s.Items[item] = &Account{
+				ID:       item,
+				Name:     name,
+				Password: password,
+				Mail:     mail,
+			}
+			n[item] = 0
+				
+			return s.Items[i], nil
+		}
+	}
+
+
 	s.Items = append(s.Items, &Account{
 		ID:       i,
 		Name:     name,
@@ -49,6 +67,7 @@ func (s *Service) Registration(name, password, mail string) (*Account, error){
 
 func (s *Service) DelateAccByID(id uint64) (*Account, error){
 	for _, item := range s.Items {
+		
 		if id == item.ID {
 			s.Items[id] = nil
 			n = append(n, id)
