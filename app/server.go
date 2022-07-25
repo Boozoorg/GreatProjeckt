@@ -1,7 +1,7 @@
 package app
 
 import (
-	"start_point/accounts"
+	"github.com/Boozoorg/GreatProjeck/accounts"
 	"encoding/json"
 	"log"
 	"net/http"

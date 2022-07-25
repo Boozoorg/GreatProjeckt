@@ -1,8 +1,8 @@
 package main
 
 import (
-	"start_point/accounts"
-	"start_point/app"
+	"github.com/Boozoorg/GreatProjeck/accounts"
+	"github.com/Boozoorg/GreatProjeck/app"
 	"log"
 	"net"
 	"net/http"
