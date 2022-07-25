@@ -65,16 +65,16 @@ func (s *Service) Registration(name, password, mail string) (*Account, error){
 	return s.Items[i], nil
 }
 
-func (s *Service) DelateAccByID(id uint64) (*Account, error){
-	for _, item := range s.Items {
-		
-		if id == item.ID {
-			s.Items[id] = nil
-			n = append(n, id)
-			return s.Items[id], nil
-		}
-	}
+// func (s *Service) DelateAccByID(id uint64) (*Account, error){
+// 	for _, item := range s.Items {
 
-	return nil, fmt.Errorf("this account is not exist")
-}
+// 		if id == item.ID {
+// 			s.Items[id] = nil
+// 			n = append(n, id)
+// 			return s.Items[id], nil
+// 		}
+// 	}
+
+// 	return nil, fmt.Errorf("this account is not exist")
+// }
 
