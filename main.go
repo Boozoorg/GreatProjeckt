@@ -15,7 +15,7 @@ func main() {
 
 	if err := execute(host, port); err != nil {
 		log.Print(err)
-		os.Exit(2)
+		os.Exit(0)
 	}
 }
 

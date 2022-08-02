@@ -1,5 +1,10 @@
-GET http://localhost:9999/account.save?name=Boozoorg&password=NotYourBusiness&mail=rajabovbuzurg22@gmail.com HTTP/1.1
+
+GET http://localhost:9999/account.save_acc?name=Boozoorg&password=NotYourBusiness HTTP/1.1
 
 ###
 
-GET http://localhost:9999/account.delate?id=1 HTTP/1.1
+GET http://localhost:9999/account.send_message?from=Boozoorg&to=Sherzod&message=hi HTTP/1.1
+
+###
+
+GET http://localhost:9999/account.send_message?from=Sherzod&to=Boozoorg&message=hello HTTP/1.1
