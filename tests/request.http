@@ -1,14 +1,31 @@
+POST http://localhost:9999/registration
+content-type: application/json
 
-GET http://localhost:9999/account.save_acc?name=Boozoorg&password=NotYourBusiness HTTP/1.1
-
-###
-
-GET http://localhost:9999/account.send_message?from=Boozoorg&to=Boozoorg&message=Не забыть купить хлеб HTTP/1.1
-
-###
-
-GET http://localhost:9999/account.send_message?from=Boozoorg&to=Sherzod&message=hi HTTP/1.1
+{   
+    "name":"Gopher",
+    "password":"qроoice-cream"
+}
 
 ###
 
-GET http://localhost:9999/account.send_message?from=Sherzod&to=Boozoorg&message=hello HTTP/1.1
+POST http://localhost:9999/delete/:id
+content-type: application/json
+
+{   
+    "id":3
+}
+
+###
+
+POST http://localhost:9999/chat
+content-type: application/json
+
+{   
+    "sendler":1,
+    "receiver":2,
+    "message":"Not bad"
+}
+
+###
+
+GET http://localhost:9999/chat?from=1&to=2
