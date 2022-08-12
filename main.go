@@ -8,7 +8,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Boozoorg/GreatProjeck/accounts"
+	"github.com/Boozoorg/GreatProjeck/client"
 	"github.com/Boozoorg/GreatProjeck/app"
 	"github.com/gorilla/mux"
 	"github.com/jackc/pgx/v4/pgxpool"
@@ -35,7 +35,7 @@ func execute(host, port, dsn string) (err error) {
 			ctx, _ := context.WithTimeout(context.Background(), time.Second*5)
 			return pgxpool.Connect(ctx, dsn)
 		},
-		accounts.NewService,
+		client.NewService,
 		func(server *app.Server) *http.Server {
 			return &http.Server{
 				Addr:    net.JoinHostPort(host, port),
