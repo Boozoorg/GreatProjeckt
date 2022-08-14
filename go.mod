@@ -1,8 +1,9 @@
-module github.com/Boozoorg/GreatProjeck
+module github.com/Boozoorg/GreatProjeckt
 
 go 1.18
 
 require (
+	github.com/Boozoorg/GreatProjeck v0.0.0-20220814230507-ed12164189ba
 	github.com/gorilla/mux v1.8.0
 	github.com/jackc/pgx/v4 v4.17.0
 	go.uber.org/dig v1.15.0
@@ -18,6 +19,5 @@ require (
 	github.com/jackc/pgservicefile v0.0.0-20200714003250-2b9c44734f2b // indirect
 	github.com/jackc/pgtype v1.12.0 // indirect
 	github.com/jackc/puddle v1.2.1 // indirect
-	github.com/lib/pq v1.10.6 // indirect
 	golang.org/x/text v0.3.7 // indirect
 )

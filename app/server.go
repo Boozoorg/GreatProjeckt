@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/Boozoorg/GreatProjeck/client"
+	"github.com/Boozoorg/GreatProjeckt/client"
 
 	"github.com/gorilla/mux"
 	_ "github.com/jackc/pgx/v4/stdlib"

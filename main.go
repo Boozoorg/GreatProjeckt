@@ -8,10 +8,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/Boozoorg/GreatProjeck/jobs"
+	"github.com/Boozoorg/GreatProjeckt/jobs"
 
-	"github.com/Boozoorg/GreatProjeck/app"
-	"github.com/Boozoorg/GreatProjeck/client"
+	"github.com/Boozoorg/GreatProjeckt/app"
+	"github.com/Boozoorg/GreatProjeckt/client"
 	"github.com/gorilla/mux"
 	"github.com/jackc/pgx/v4/pgxpool"
 	_ "github.com/jackc/pgx/v4/stdlib"
