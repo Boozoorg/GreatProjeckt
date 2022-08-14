@@ -1,29 +1,23 @@
-POST http://localhost:9999/registration
+POST http://localhost:9999/token
 content-type: application/json
-
 {   
-    "name":"Gopher",
-    "password":"qроoice-cream"
+    "name":"Boozoorg",
+    "password":"NotYourBusiness"
 }
 
 ###
 
-POST http://localhost:9999/delete/:id
-content-type: application/json
-
-{   
-    "id":3
-}
-
+DELETE  http://localhost:9999/registration/3 
 ###
 
 POST http://localhost:9999/chat
 content-type: application/json
+Authorization: 2cdf0e08dfe432eaabf77b06156291efed4567db0f2beac1960222524c32ed757af440f1799fa2dd17fc50e267a0a22d9e8f235af00c3a302f966c2b8f6dc231c47e563064986e0dbb5fb4bd33926abcde7f0e1e67c5384683b830ee88324d4be922dbb62780a075bcdafc058cf141d3fd6c6406f66fdd2714b16bd00ec6365ce8e66e0a6a365f1278f530a5baa7f7f8c8ad4eadcdffd8e73bf54cc6e61ca0f2a3a102c4c01ffa32cd6b1c43a58bb73d062a9869c3a10ccce0af865a6c9a9134ce906eb5f914c4f5eea52436969de598424e3d7c838c2b66e0ad15429b0cf1d0b5415767157795d7e6e9a1bc807afc582451fc0d406c4ed45b8861131bccc3d
 
 {   
     "sendler":1,
     "receiver":2,
-    "message":"Not bad"
+    "message":"hi"
 }
 
 ###

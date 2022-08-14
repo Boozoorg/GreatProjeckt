@@ -8,8 +8,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/Boozoorg/GreatProjeck/client"
+	"github.com/Boozoorg/GreatProjeck/jobs"
+
 	"github.com/Boozoorg/GreatProjeck/app"
+	"github.com/Boozoorg/GreatProjeck/client"
 	"github.com/gorilla/mux"
 	"github.com/jackc/pgx/v4/pgxpool"
 	_ "github.com/jackc/pgx/v4/stdlib"
@@ -20,10 +22,11 @@ func main() {
 	host := "0.0.0.0"
 	port := "9999"
 	dsn := "postgres://postgres:postgres@localhost:5432/db"
+	go jobs.StartJob(1, dsn)
 
 	if err := execute(host, port, dsn); err != nil {
 		log.Print(err)
-		os.Exit(0)
+		os.Exit(22)
 	}
 }
 
